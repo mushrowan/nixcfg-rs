@@ -1,0 +1,11 @@
+[package]
+name = "xtask"
+description = "project-private workflow front door for nixcfg-rs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[[bin]]
+name = "xtask"
+path = "src/main.rs"
