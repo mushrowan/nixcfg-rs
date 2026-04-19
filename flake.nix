@@ -74,6 +74,7 @@
             cargo-edit
             cargo-machete
             cargo-nextest
+            cargo-semver-checks
             cargo-watch
             jujutsu
           ];
