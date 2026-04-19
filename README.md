@@ -100,38 +100,6 @@ cargo x update-schema    # refresh example-mycel/schema.json
 cargo x check-semver     # pre-release: diff public API against crates.io baseline
 ```
 
-## releasing
-
-automated via [release-plz](https://release-plz.dev). every push to
-`main` triggers a workflow that either:
-
-1. opens/updates a "release pr" with conventional-commit-derived
-   version bumps + a changelog entry
-2. when that pr merges, publishes `nixcfg-derive` and `nixcfg` to
-   crates.io and creates matching git tags + github releases
-
-before merging a release pr:
-
-```sh
-cargo x check-semver       # catch semver violations against last crates.io version
-```
-
-first-time setup (not automated, do once):
-
-1. repo settings → actions → workflow permissions: allow github
-   actions to create and approve pull requests
-2. `secrets.CARGO_REGISTRY_TOKEN` (scopes `publish-new` +
-   `publish-update`), or set up
-   [trusted publishing](https://crates.io/docs/trusted-publishing) on
-   crates.io (note: new crates can't be bootstrapped via trusted
-   publishing; first publish must be manual)
-3. first publish runs by hand:
-   ```sh
-   cargo publish -p nixcfg-derive    # proc-macro, must go first
-   cargo publish -p nixcfg
-   ```
-   subsequent releases go through release-plz automatically
-
 ## license
 
 dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE),

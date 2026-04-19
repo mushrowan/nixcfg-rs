@@ -15,6 +15,9 @@ jobs:
   release-plz-release:
     name: release-plz release
     runs-on: ubuntu-latest
+    # crates-io environment scopes CARGO_REGISTRY_TOKEN to this job only.
+    # recommended protection rule: deployment branches = main
+    environment: crates-io
     permissions:
       contents: write
     steps:
@@ -32,7 +35,8 @@ jobs:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
   # opens or updates the release pull request with version bumps and
-  # changelog entries from conventional commits since the last release
+  # changelog entries from conventional commits since the last release.
+  # does not need CARGO_REGISTRY_TOKEN - only opens PRs, doesn't publish
   release-plz-pr:
     name: release-plz PR
     runs-on: ubuntu-latest
@@ -51,4 +55,3 @@ jobs:
           command: release-pr
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
