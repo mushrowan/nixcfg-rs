@@ -12,7 +12,7 @@ checksum = "d0881ea181b1df73ff77ffaaf9c7544ecc11e82fba9b5f27b262a3c73a332555"
 name = "example-mycel"
 version = "0.3.0"
 dependencies = [
- "nixcfg",
+ "nixcfg-rs",
  "schemars",
  "serde",
  "serde_json",
@@ -31,17 +31,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f8ca58f447f06ed17d5fc4043ce1b10dd205e060fb3ce5b979b8ed8e59ff3f79"
 
 [[package]]
-name = "nixcfg"
+name = "nixcfg-rs"
 version = "0.3.0"
 dependencies = [
- "nixcfg-derive",
+ "nixcfg-rs-derive",
  "schemars",
  "serde",
  "serde_json",
 ]
 
 [[package]]
-name = "nixcfg-derive"
+name = "nixcfg-rs-derive"
 version = "0.3.0"
 dependencies = [
  "proc-macro2",

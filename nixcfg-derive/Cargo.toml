@@ -1,6 +1,6 @@
 [package]
-name = "nixcfg-derive"
-description = "derive macro for nixcfg - cuts schemars extend boilerplate"
+name = "nixcfg-rs-derive"
+description = "derive macro for nixcfg-rs - cuts schemars extend boilerplate"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -10,6 +10,9 @@ homepage.workspace = true
 readme = "README.md"
 
 [lib]
+# library-facing name stays nixcfg_derive regardless of the crates.io
+# package name so the re-export from nixcfg (lib) stays clean
+name = "nixcfg_derive"
 proc-macro = true
 
 [dependencies]
