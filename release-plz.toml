@@ -1,0 +1,16 @@
+# release-plz config
+# see https://release-plz.dev/docs/config
+
+[workspace]
+# update Cargo.lock with cargo update (picks up patch bumps in deps)
+dependencies_update = true
+# link-back to the release PR in commit bodies for easier tracing
+pr_branch_prefix = "release-plz-"
+pr_labels = ["release"]
+# create github releases with changelogs
+git_release_enable = true
+# release only when the release PR merges, not on every push
+release_always = false
+
+# example-mycel and xtask are publish = false in their Cargo.toml so
+# release-plz skips them automatically. no per-package overrides needed
