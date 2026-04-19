@@ -77,6 +77,10 @@
             cargo-semver-checks
             cargo-watch
             jujutsu
+            # cargo publish's verify step needs a C linker for proc-macro
+            # build scripts. rust-overlay toolchain ships rustc/cargo but
+            # not cc
+            stdenv.cc
           ];
         };
 
